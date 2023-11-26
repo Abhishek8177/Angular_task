@@ -1,0 +1,36 @@
+.container-fluid {
+    background-color: #2684e0;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+}
+
+.form-group {
+    margin: 15px 0;
+    padding: 0 15px;
+}
+
+.btn-primary {
+    background-color: #3897f0;
+    border-color: #3897f0;
+}
+
+.btn-primary:hover {
+    background-color: #2684e0;
+    border-color: #2684e0;
+}
+
+.text-center a {
+    color: #3897f0;
+    text-decoration: none;
+}
+.text-center a:hover {
+    color: blue;
+}
+
+.error{
+    border: 1px solid red;
+}

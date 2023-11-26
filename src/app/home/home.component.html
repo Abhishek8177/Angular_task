@@ -1,0 +1,110 @@
+
+<nav class="navbar navbar-light bg-primary">
+
+    <div class="container-fluid">
+        <h1 >Book Detail List</h1>
+        <div class="d-flex">
+            <button type="button" (click)="clickAddBook()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Book
+            </button>
+
+        </div>
+        <div class="sec">
+          <button type="button" routerLink="/login" class="btn btn-danger" >
+            Logut
+          </button>
+  
+        </div>
+
+
+    </div>
+</nav>
+
+<div class="row mx-3">
+    <div class="col-md-12 ">
+        <table class="table table-striped table-border  " >
+            <thead>
+                <tr>
+                    <th>Book_id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Published Date</th>
+                    <th>Price </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of allBookData ">
+                    <td> {{row.id}} </td>
+                    <td>{{row.title}} </td>
+                    <td>{{row.author}} </td>
+                    <td>{{row.date}} </td>
+                    <td>{{row.price}} </td>
+                    <td>
+                        <button type="submit"  (click)="editData(row)" color="secondary" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >Edit</button>
+                        <button type="button" (click)="DeletBooK(row)"  color="warn" class=" btn btn-danger mx-3" >Delet</button>
+
+                    </td>
+
+
+
+
+
+
+                </tr>
+
+            </tbody>
+
+            
+        
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Book Deatil</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Title</label>
+                  <input type="text" class="form-control" formControlName="title" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Author</label>
+                  <input type="text" class="form-control"  formControlName="author" name="author"id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Published Date</label>
+                    <input type="date" class="form-control" formControlName="date" name="date" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Price</label>
+                    <input type="number" class="form-control" formControlName="price" name="price" id="exampleInputPassword1">
+                  </div>
+  
+  
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" (click)="postBookDetail()" class="btn btn-primary">Add </button>
+          <button type="button" *ngIf="showUpdate" (click)="updateBookDetail()" class="btn btn-success">Update</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-3">
+        <div class="card">
+          <h1 class="mx-auto d-block mt-4 mb-3">Login</h1>
+          <form [formGroup]="loginForm" (ngSubmit)=" login()">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="email" formControlName="email" name="email" [ngClass]="{error: getControls('email')?.errors && getControls('email')?.touched}">
+              <div *ngIf="getControls('email')?.errors && getControls('email')?.touched ">
+                <small class="text-danger" *ngIf="getControls('email')?.errors?.['require']">email require</small>
+                <small class="text-danger" *ngIf="getControls('email')?.errors?.['maxLength']">only 15 charectors email allowed.</small>
+                <small class="text-danger" *ngIf="getControls('email')?.errors?.['minLength']">email to short.</small>
+              </div>      
+            </div>
+          
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password" formControlName="password" name="password" [ngClass]="{error: getControls('password')?.errors && getControls('password')?.touched}">
+              <div *ngIf="getControls('password')?.errors && getControls('password')?.touched ">
+                <small class="text-danger" *ngIf="getControls('password')?.errors?.['require']">password require</small>
+                <small class="text-danger" *ngIf="getControls('password')?.errors?.['maxLength']">only 15 charectors password allowed.</small>
+                <small class="text-danger" *ngIf="getControls('password')?.errors?.['minLength']">invalid password.</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary form-control">Log In</button>
+            </div>
+          </form> 
+          <!-- <div class="mt-3 text-center mb-3">
+            <a href="#">Forgot Password?</a>
+          </div>
+        </div>
+        <div class="card mt-2 text-center">
+          <div class="card-body">
+            Don't have an account? <a [routerLink]="'/register'">Sign up</a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
